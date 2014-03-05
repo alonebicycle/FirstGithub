@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fangpw.web.dao.mapper.InfoMapper">
+  <resultMap id="BaseResultMap" type="com.fangpw.web.dao.domain.Info">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="CODE_KIND" jdbcType="VARCHAR" property="codeKind" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, CODE, CODE_KIND,REMARK
+  </sql>
+  <select id="getInfoList" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_a_info
+    where CODE = #{code}
+  </select>
+</mapper>

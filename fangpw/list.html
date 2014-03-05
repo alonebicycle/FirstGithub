@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>$code查询结果- 防骗网</title>
+<meta name="keywords" content="我来防骗|骗子|举报骗子|查询银行账号|查询电话" /> 
+<meta name="description" content="我来防骗网是为网民提供防骗知识、可疑电话可疑银行账户的查询的公益网站" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+	<br/>
+	<div id="search">
+		<form action="query" method="post">
+			<span class="bg s_ipt_wr"> 
+				<input type="text" name="code" id="code" value=$code
+				 maxlength="100" class="s_ipt">
+			</span> <span class="bg s_btn_wr"> <input type="submit" value="查 询"
+				id="su" class="bg s_btn"
+				onmousedown="this.className='bg s_btn s_btn_h'"
+				onmouseout="this.className='bg s_btn'">
+			</span>
+		</form>
+	</div>
+	<br/>
+	<div align="center" style="color:red">
+		<ul>
+		#if($list.size()>0)
+		#foreach($info in $list)
+			<li>$velocityCount   --$info.getCode()</li>
+		#end
+		#else
+			没有记录
+		#end
+		</ul>
+		危险指数******<br/>
+		$qed
+	</div>
+</body>
+</html>
